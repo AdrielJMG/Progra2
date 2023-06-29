@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Librería Online</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.google.com/specimen/Lexend+Peta" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#libros">Libros</a></li>
+        <li><a href="#registro">Registro</a></li>
+        <li><a href="#quienes-somos">Quiénes somos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <div class="banner">
+      <div class="parallax">
+        <div class="parallax-inner">
+          <h1>Bienvenido a nuestra librería online</h1>
+          <p>Tu lugar de lectura</p>
+          <a href="#libros" class="cta-button">Explorar libros</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="libros">
+    <h2>Libros</h2>
+    <div class="libros-lista">
+      <div class="libro">
+        <img src="Imagenes/libro1.jpeg" alt="Libro 1">
+        <h3>Harry Potter y el Prisionero de Azkaban</h3>
+        <p>J K Rowling</p>
+        <a href="detalle-libro1.html" class="boton">Ver detalles</a>
+      </div>
+      <div class="libro">
+        <img src="Imagenes/libro2.jpeg" alt="Libro 2">
+        <h3>Título del libro 2</h3>
+        <p>Autor del libro 2</p>
+        <a href="detalle-libro2.html" class="boton">Ver detalles</a>
+      </div>
+      <div class="libro">
+        <img src="portada3.jpg" alt="Libro 3">
+        <h3>Título del libro 3</h3>
+        <p>Autor del libro 3</p>
+        <a href="detalle-libro3.html" class="boton">Ver detalles</a>
+      </div>
+      <div class="libro">
+        <img src="portada4.jpg" alt="Libro 4">
+        <h3>Título del libro 4</h3>
+        <p>Autor del libro 4</p>
+        <a href="detalle-libro4.html" class="boton">Ver detalles</a>
+      </div>
+      <div class="libro">
+        <img src="portada5.jpg" alt="Libro 5">
+        <h3>Título del libro 5</h3>
+        <p>Autor del libro 5</p>
+        <a href="detalle-libro5.html" class="boton">Ver detalles</a>
+      </div>
+      <div class="libro">
+        <img src="portada6.jpg" alt="Libro 6">
+        <h3>Título del libro 6</h3>
+        <p>Autor del libro 6</p>
+        <a href="detalle-libro6.html" class="boton">Ver detalles</a>
+      </div>
+      <!-- Agrega más elementos de libro según sea necesario -->
+    </div>
+  </section>
+
+  <section id="registro">
+    <h2>Registro</h2>
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+
+      <label for="direccion">Dirección:</label>
+      <textarea id="direccion" name="direccion" required></textarea>
+
+      <button type="submit" class="boton">Registrarse</button>
+    </form>
+  </section>
+
+  <section id="quienes-somos">
+    <h2>Quiénes somos</h2>
+    <div class="equipo">
+      <div class="miembro">
+        <h3>Nombre Apellido</h3>
+        <p>Email: correo@example.com</p>
+        <a href="https://github.com/usuario1" target="_blank">GitHub</a>
+      </div>
+      <div class="miembro">
+        <h3>Nombre Apellido</h3>
+        <p>Email: correo@example.com</p>
+      </div>
+      <!-- Agrega más miembros del equipo según sea necesario -->
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo">
+      <img src="Imagenes/logo.png" alt="Logo de la librería">
+    </div>
+    <div class="info">
+      <p>&copy; 2023 Librería Junior. Todos los derechos reservados.</p>
+      <p>Dirección: Belgrano 1234, San Salvador de Jujuy , Jujuy , Argentina</p>
+    </div>
+  </footer>
+</body>
+</html>

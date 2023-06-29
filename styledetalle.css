@@ -1,0 +1,86 @@
+/* Estilos para el detalle del libro */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+section#detalle-libro {
+  text-align: center;
+  padding: 40px;
+}
+
+.detalle-libro img {
+  max-width: 300px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.detalle-libro img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.detalle-libro h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.detalle-libro p {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.boton {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #555;
+}
+
+  /* Estilos del pie de página */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .logo img {
+    width: 150px;
+    height: 150px;
+  }
+  
