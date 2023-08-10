@@ -14,6 +14,7 @@
         <li><a href="#libros">Libros</a></li>
         <li><a href="#registro">Registro</a></li>
         <li><a href="#quienes-somos">Quiénes somos</a></li>
+        <li><a href="#favoritos" onclick="AlertaFavorito()">Favoritos</a></li>
       </ul>
     </nav>
   </header>
@@ -38,12 +39,14 @@
         <h3>Harry Potter y el Prisionero de Azkaban</h3>
         <p>J K Rowling</p>
         <a href="detalle-libro1.html" class="boton">Ver detalles</a>
+        <button onclick="AgregaraFavoritos('Harry Potter y el Prisionero de Azkaban')">Agregar a favoritos</button>
       </div>
       <div class="libro">
         <img src="Imagenes/libro2.jpeg" alt="Libro 2">
-        <h3>Título del libro 2</h3>
-        <p>Autor del libro 2</p>
+        <h3>Post Mortem</h3>
+        <p>Patricia Cornwell</p>
         <a href="detalle-libro2.html" class="boton">Ver detalles</a>
+        <button onclick="AgregaraFavoritos('Post Mortem')">Agregar a favoritos</button>
       </div>
       <div class="libro">
         <img src="portada3.jpg" alt="Libro 3">
@@ -69,18 +72,20 @@
         <p>Autor del libro 6</p>
         <a href="detalle-libro6.html" class="boton">Ver detalles</a>
       </div>
-      <!-- Agrega más elementos de libro según sea necesario -->
     </div>
   </section>
 
   <section id="registro">
     <h2>Registro</h2>
-    <form>
+    <form onsubmit="return validarFormulario()">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required>
 
       <label for="apellido">Apellido:</label>
       <input type="text" id="apellido" name="apellido" required>
+
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
@@ -99,18 +104,17 @@
     <h2>Quiénes somos</h2>
     <div class="equipo">
       <div class="miembro">
-        <h3>Nombre Apellido</h3>
-        <p>Email: correo@example.com</p>
-        <a href="https://github.com/usuario1" target="_blank">GitHub</a>
+        <h3>Adriel Gutierrez</h3>
+        <p>Email: adrielgui@gmail.com.com</p>
+        <a href="https://github.com/AdrielJMG" target="_blank">GitHub</a>
       </div>
-      <div class="miembro">
-        <h3>Nombre Apellido</h3>
-        <p>Email: correo@example.com</p>
-      </div>
-      <!-- Agrega más miembros del equipo según sea necesario -->
-    </div>
   </section>
-
+  <section id="favoritos">
+    <h2>Favoritos</h2>
+    <ul id="lista-favorito">
+    </ul>
+    <button onclick="AlertaFavorito()">Mostrar Favoritos</button>
+  </section>
   <footer>
     <div class="logo">
       <img src="Imagenes/logo.png" alt="Logo de la librería">
@@ -120,5 +124,62 @@
       <p>Dirección: Belgrano 1234, San Salvador de Jujuy , Jujuy , Argentina</p>
     </div>
   </footer>
+  <script>
+    const Listadefavoritos = document.getElementById('lista-favorito');
+    
+    function AgregaraFavoritos(Nombrelibro) {
+      const Favorito = document.createElement('li');
+      Favorito.textContent = Nombrelibro;
+
+      Listadefavoritos.appendChild(Favorito);
+      savefavoritos();
+    }
+
+    function savefavoritos() {
+      const Favoritos = Array.from(Listadefavoritos.children).map(item => item.textContent);
+      localStorage.setItem('Favoritos', JSON.stringify(Favoritos));
+    }
+
+    function cargarFavorito() {
+      const Favoritos = JSON.parse(localStorage.getItem('Favoritos')) || [];
+      Favoritos.forEach(Nombrelibro => {
+        const Favorito = document.createElement('li');
+        Favorito.textContent = Nombrelibro;
+        Listadefavoritos.appendChild(Favorito);
+      });
+    }
+    
+    function AlertaFavorito() {
+      const Favoritos = Array.from(Listadefavoritos.children).map(item => item.textContent);
+      if (Favoritos.length > 0) {
+        const favoritosString = Favoritos.join('\n');
+        alert(`Libros favoritos:\n\n${favoritosString}`);
+      } else {
+        alert("No hay Libros en favoritos");
+      }
+    }
+    cargarFavorito();
+  </script>
+  <script>
+    function validarFormulario() {
+      const nombreInput = document.getElementById('usuario');
+      const contrasenaInput = document.getElementById('contrasena');
+  
+      // Validar nombre de usuario (más de 5 caracteres)
+      if (nombreInput.value.length <= 5) {
+        alert('El nombre de usuario debe tener más de 5 caracteres.');
+        return false;
+      }
+  
+      // Validar contraseña (8 caracteres, al menos 1 número y 1 letra)
+      const contrasena = contrasenaInput.value;
+      if (contrasena.length < 8 || !(/[a-zA-Z]/.test(contrasena)) || !(/\d/.test(contrasena))) {
+        alert('La contraseña debe tener al menos 8 caracteres, incluyendo al menos 1 letra y 1 número.');
+        return false;
+      }
+  
+      return true; // Si pasa todas las validaciones, el formulario se envía
+    }
+  </script>
 </body>
 </html>
